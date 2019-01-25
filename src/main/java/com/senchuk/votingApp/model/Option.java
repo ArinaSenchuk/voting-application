@@ -1,18 +1,10 @@
 package com.senchuk.votingApp.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "options")
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
 public class Option {
 
     @Id
@@ -22,4 +14,41 @@ public class Option {
     private int vote;
     @ManyToOne
     private Voting voting;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getVote() {
+        return vote;
+    }
+
+    public void setVote(int vote) {
+        this.vote = vote;
+    }
+
+    public Voting getVoting() {
+        return voting;
+    }
+
+    public void setVoting(Voting voting) {
+        this.voting = voting;
+    }
+
+    public Option(String name, int vote, Voting voting) {
+        this.name = name;
+        this.vote = vote;
+        this.voting = voting;
+    }
+
+    public Option() {
+    }
 }

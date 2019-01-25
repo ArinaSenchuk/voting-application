@@ -1,15 +1,22 @@
 package com.senchuk.votingApp.model.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
 public class UrlDto {
 
     private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public UrlDto(String url) {
+        this.url = url;
+    }
+
+    public UrlDto() {
+    }
 }
