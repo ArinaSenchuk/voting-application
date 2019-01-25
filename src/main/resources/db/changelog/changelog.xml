@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="ADD_VOTING_TABLE" author="arina.senchuk@gmail.com">
+        <createTable tableName="voting">
+            <column name="id" type="bigint">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(55)"/>
+            <column name="status" type="varchar(55)"/>
+        </createTable>
+
+        <addAutoIncrement tableName="voting" columnName="id" columnDataType="bigint"/>
+
+    </changeSet>
+
+    <changeSet id="ADD_OPTIONS_TABLE" author="arina.senchuk@gmail.com">
+        <createTable tableName="options">
+            <column name="id" type="bigint">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(55)"/>
+            <column name="vote" type="int"/>
+            <column name="voting_id" type="bigint"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="options"
+                                 baseColumnNames="voting_id"
+                                 constraintName="options_voting_fk"
+                                 referencedTableName="voting"
+                                 referencedColumnNames="id"/>
+
+        <addAutoIncrement tableName="options" columnName="id" columnDataType="bigint"/>
+    </changeSet>
+
+</databaseChangeLog>

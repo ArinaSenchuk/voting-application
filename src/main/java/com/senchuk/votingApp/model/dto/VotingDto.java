@@ -18,5 +18,4 @@ public class VotingDto {
     private String name;
     private Status status;
     private List<OptionDto> options;
-
 }

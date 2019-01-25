@@ -42,7 +42,7 @@ public class OptionsServiceImpl implements OptionsService {
     }
 
     @Override
-    public Option save(Option option) {
-        return optionRepository.save(option);
+    public void save(Option option) {
+        optionRepository.save(option);
     }
 }

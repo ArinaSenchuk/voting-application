@@ -11,7 +11,7 @@ public interface OptionsService {
 
     void vote(Long id);
 
-    Option save(Option option);
+    void save(Option option);
 
     List<Option> getOptions(Long id);
 }

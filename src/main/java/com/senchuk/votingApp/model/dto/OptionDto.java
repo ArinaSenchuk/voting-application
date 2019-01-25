@@ -14,5 +14,4 @@ public class OptionDto {
     private Long id;
     private String name;
     private int vote;
-
 }
